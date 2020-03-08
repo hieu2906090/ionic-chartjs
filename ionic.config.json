@@ -1,0 +1,7 @@
+{
+  "name": "chartjs",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
