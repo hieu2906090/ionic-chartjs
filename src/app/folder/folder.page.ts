@@ -9,12 +9,9 @@ import { Chart } from 'chart.js';
   styleUrls: ['./folder.page.scss'],
 })
 export class FolderPage implements OnInit {
-  @ViewChild('barChartPage', { static: true }) barChart;
-  
   @ViewChild('barCanvas', { static: true }) barCanvas;
   @ViewChild('doughnutCanvas', { static: true }) doughnutCanvas;
   @ViewChild('lineCanvas', { static: true }) lineCanvas;
-  
   barChartOther: any;
   doughnutChart: any;
   lineChart: any;
@@ -22,14 +19,12 @@ export class FolderPage implements OnInit {
   bars: any;
   colorArray: any;
   public folder: string;
-  
   constructor(private activatedRoute: ActivatedRoute) { }
 
   chartClick(evt) {
-    console.log("Goi Event trong page chua barchart!");
-    //1. Gọi hàm lấy dữ liệu theo index trong evt
+    // 1. Gọi hàm lấy dữ liệu theo index trong evt
 
-    //2. Xử lý dữ liệu trả về và cập nhập chart
+    // 2. Xử lý dữ liệu trả về và cập nhập chart
 
     // var activeElement = this.barChartOther.getElementAtEvent(evt);
     console.log(evt);
@@ -40,8 +35,6 @@ export class FolderPage implements OnInit {
   }
 
   ionViewDidEnter() {
-    this.createBarChart();
-    
     this.barChartMethod();
     this.doughnutChartMethod();
     this.lineChartMethod();
@@ -49,31 +42,6 @@ export class FolderPage implements OnInit {
 
   chartClickHandler(evt) {
     console.log(evt);
-  }
-
-  createBarChart() {
-    this.bars = new Chart(this.barChart.nativeElement, {
-      type: 'horizontalBar',
-      data: {
-        labels: ['S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8', 'S9', 'S10'],
-        datasets: [{
-          label: 'Viewers in millions',
-          data: [2.5, 3.8, 5, 6.9, 6.9, 7.5, 10, 17, 5, 1],
-          backgroundColor: 'rgb(38, 194, 129)', // array should have same number of elements as number of dataset
-          borderColor: 'rgb(38, 194, 129)',// array should have same number of elements as number of dataset
-          borderWidth: 1,
-        }]
-      },
-      options: {
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
-            }
-          }]
-        }
-      }
-    });
   }
 
   barChartMethod() {
@@ -104,10 +72,6 @@ export class FolderPage implements OnInit {
         }]
       },
       options: {
-        // tooltips: {
-        //   mode: 'point',
-        //   intersect: true,
-        // },
         scales: {
           yAxes: [{
             ticks: {
